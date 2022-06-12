@@ -87,7 +87,7 @@
   },
   "npm": {
     "publish": true,
-    "skipChecks": true
+    "skipChecks": false
   },
   "storybook": {
     "displayName": "designTokensCss",
