@@ -35,36 +35,28 @@ This addon should work well with any framework: If you find the case the addon n
 ### 1. Install
 
 ```sh
-npm install --save-dev storybook-addon-designs
-# yarn add -D storybook-addon-designs
+npm install --save-dev @outlinestudio/designtokenscss
+# yarn add -D @outlinestudio/designtokenscss
 ```
 
 ### 2. Register the addon in `main.js`
 
 ```js
 module.exports = {
-  addons: ['storybook-addon-designs'],
+  addons: ['designtokenscss'],
 }
 ```
 
 ### 3. Add it to story!
 
 ```js
-import { withDesign } from 'storybook-addon-designs'
+# Add preview.html to your storybook
+import Themes from './themes.json'
 
-export default {
-  title: 'My stories',
-  component: Button,
-  decorators: [withDesign],
+export const parameters = {
+  designTokensCss: {
+    label: "Themes",
+    persistData: true,
+    themes: Themes
+  }
 }
-
-export const myStory = () => <Button>Hello, World!</Button>
-
-myStory.parameters = {
-  design: {
-    type: 'figma',
-    url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',
-  },
-}
-```
-
