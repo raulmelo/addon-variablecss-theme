@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./docs/designtokensStorybook.png" width="104" alt="logo">
+  <img src="./_docs/designtokensStorybook.png" width="104" alt="logo">
   <br/>
   <br/>
 </div>
@@ -16,7 +16,7 @@ create components with variables css, based on the theme you want to use.
 - []()
 
 <div align="center">
-  <img src="./docs/exemple-theme-root.gif" width="100%" alt="logo">
+  <img src="./_docs/exemple-theme-root.gif" width="100%" alt="logo">
   <br/>
   <br/>
 </div>
