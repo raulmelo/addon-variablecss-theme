@@ -1,9 +1,16 @@
 {
-  "name": "storybook-addon-designtokens-css",
-  "version": "0.0.0",
-  "description": "designtokencss",
+  "name": "@outlinestudio/designtokenscss",
+  "version": "1.0.0",
+  "description": "Addon storybook to themes using design tokens with css variables",
   "keywords": [
-    "storybook-addon-variablescss-theme", "storybook-addons"
+    "storybook-addon-variablescss-theme", 
+    "storybook",
+    "storybook-plugin",
+    "storybook-addon-variablescss",
+    "storybook-addon-designtokens",
+    "storybook-addon-design-tokens-css",
+    "storybook-addon-figma-tokens",
+    "storybook-addons"
   ],
   "repository": {
     "type": "git",
@@ -78,11 +85,12 @@
   "publishConfig": {
     "access": "public"
   },
+  
   "storybook": {
-    "displayName": "designtokenscss",
+    "displayName": "designTokensCss",
     "supportedFrameworks": [
       "react", "vue", "angular"
     ],
-    "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
+    "icon": "https://raw.githubusercontent.com/raulmelo/addon-variablecss-theme/main/_docs/designtokensStorybook.png"
   }
 }
