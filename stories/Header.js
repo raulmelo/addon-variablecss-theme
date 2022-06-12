@@ -1,8 +1,8 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-
+import React from 'react';
 import { Button } from './Button';
 import './header.css';
+
 
 export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
   <header>
@@ -28,11 +28,11 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
       </div>
       <div>
         {user ? (
-          <Button size="small" onClick={onLogout} label="Log out" />
+          <Button theme={'primary'} onClick={onLogout} label="Log out" />
         ) : (
           <>
-            <Button size="small" onClick={onLogin} label="Log in" />
-            <Button primary size="small" onClick={onCreateAccount} label="Sign up" />
+            <Button theme={'primary'} onClick={onLogin} label="Log in" />
+            <Button theme={'secondary'} onClick={onCreateAccount} label="Sign up" />
           </>
         )}
       </div>

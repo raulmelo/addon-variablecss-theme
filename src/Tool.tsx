@@ -1,31 +1,40 @@
-import React, { useCallback } from "react";
-import { useGlobals } from "@storybook/api";
-import { Icons, IconButton } from "@storybook/components";
-import { TOOL_ID } from "./constants";
+import { useGlobals, useParameter } from "@storybook/api";
+import React from "react";
+import { DropdownTool } from "./components/Dropdown";
+import { PARAM_KEY } from "./constants";
+import { DisplayToolState } from "./utils/actions";
+import { ThemeTokensType, ThemeType } from "./utils/types";
 
 export const Tool = () => {
-  const [{ myAddon }, updateGlobals] = useGlobals();
+  const [{ themeVariableCss }, updateGlobals] = useGlobals();
+  const tokensCss = useParameter<ThemeTokensType>(PARAM_KEY)
 
-  const toggleMyTool = useCallback(
-    () =>
-      updateGlobals({
-        myAddon: myAddon ? undefined : true,
-      }),
-    [myAddon]
-  );
 
-  return (
-    <IconButton
-      key={TOOL_ID}
-      active={myAddon}
-      title="Enable my addon"
-      onClick={toggleMyTool}
-    >
-      {/*
-        Checkout https://next--storybookjs.netlify.app/official-storybook/?path=/story/basics-icon--labels
-        for the full list of icons
-      */}
-      <Icons icon="lightning" />
-    </IconButton>
-  );
+  React.useEffect( () => {
+    if(tokensCss && themeVariableCss) {
+      const themeSelected = tokensCss?.themes.filter((_theme: ThemeType) => _theme.name === themeVariableCss?.name)[0];
+      DisplayToolState('html', {isInDocs: false,  themeVariableCss: themeVariableCss.name, themeSelected: themeSelected} )
+    }
+  }, [themeVariableCss] )
+  
+
+  
+  if (!tokensCss && !tokensCss?.themes?.length) {
+    return null
+  }
+
+
+  
+
+  function setThemeStorybook() { 
+    console.log(document.querySelector('#root'), 'theme')
+  }
+
+  const { themes = [], label = 'Themes'  } = tokensCss;
+  return <DropdownTool 
+    label={label}  
+    list={themes} 
+    setTheme={ () => setThemeStorybook() }
+  />
 };
+
