@@ -11,9 +11,12 @@ Add your Themes using variables css and use them in your components.
 
 create components with variables css, based on the theme you want to use.
 
-## Example:
+## Step by step
+- [ ] install addon npm or yarn
+- [ ] add .storybook/main.(js,ts)  
+- [ ] config your themes in .storybook/preview.(js,ts) 
 
-- []()
+## Example:
 
 <div align="center">
   <img src="./_docs/exemple-theme-root.gif" width="100%" alt="logo">
@@ -22,9 +25,11 @@ create components with variables css, based on the theme you want to use.
 </div>
 <hr/>
 
+
 ## Requirements
 
 - Storybook@>=6.0.0
+
   This addon should work well with any framework: If you find the case the addon not works, please open an issue.
 
 ## Getting started
@@ -36,7 +41,7 @@ npm install --save-dev @outlinestudio/designtokenscss
 # yarn add -D @outlinestudio/designtokenscss
 ```
 
-### 2. Register the addon in `main.js`
+### 2. Register the addon in `.storybook/main.(js,ts)`
 
 ```js
 module.exports = {
@@ -44,19 +49,44 @@ module.exports = {
 };
 ```
 
-### 3. Add it to story!
+### 3. Register the addon in `.storybook/preview.(js,ts)`
 
 ```js
-# Add preview.html to your storybook
-import Themes from './themes.json'
-
 export const parameters = {
   designTokensCss: {
-    label: "Themes",
-    persistData: true,
-    themes: Themes
-  }
-}
+      label: 'Themes',
+      persistData: true,
+      themes: [
+        {
+          "name": "Theme One",
+          "miniLogo": "",
+          "tokens": {
+            ## add all yours css variables here
+            "yours-primary": "#c8c615",
+            "yours-primary-text": "#faf9e8",
+            "yours-primary-container": "#b4b213",
+            "yours-primary-light": "#e9e8a1",
+            "yours-primary-dark": "#62610a",
+            "yours-primary-hover": "#969510" 
+            ## add all yours css variables here
+          }
+        },
+        {
+          "name": "Theme Two",
+          "miniLogo": "https://javisperez.github.io/tailwindcolorshades/img/icons/favicon-16x16.png",
+          "tokens": {
+            ## add all yours css variables here
+            "yours-primary": "#c8c615",
+            "yours-primary-text": "#faf9e8",
+            "yours-primary-container": "#b4b213",
+            "yours-primary-light": "#e9e8a1",
+            "yours-primary-dark": "#62610a",
+            "yours-primary-hover": "#969510"
+            ## add all yours css variables here
+           }
+        },
+      ]
+    }
 ```
 
 ### Types addon
@@ -75,12 +105,17 @@ export const parameters = {
 | miniLogo  | string optional | Mini logo theme show in select       |
 | tokens    | Object          | Declare name and value css variables |
 
-# A collapsible section with markdown
+# Exemplo config with themes
 
-<details>
-  <summary>Click to expand!</summary>
-  <p>
-  ```js
+
+#### example config
+<details><summary>Example files</summary>
+
+<p>
+
+#### in themes add yours variables.
+
+```javascript
   export const parameters = {
     designTokensCss: {
       label: "Themes",
@@ -149,6 +184,21 @@ export const parameters = {
     ]
     }
   }
-  ```
-  <p>
+```
+
+</p>
 </details>
+
+
+
+### Set yours themes in storybook panel (OPTIONAL)
+You can change panel default in storybook, all custom accept in css variables through file `.storybook/manager-head.html`.
+adding in styles tag with yours variable custom with params. 
+example: 
+<details><summary>Example files</summary>
+<div align="center">
+  <img src="./_docs/exemple-theme-storybook.gif" width="100%" alt="logo">
+  <br/>
+  <br/>
+</div>
+<details>
