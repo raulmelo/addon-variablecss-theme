@@ -1,6 +1,6 @@
 {
   "name": "@outlinestudio/designtokenscss",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Addon storybook to themes using design tokens with css variables",
   "keywords": [
     "storybook-addon-variablescss-theme", 
@@ -83,12 +83,9 @@
     }
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "access": "public"
   },
-  "npm": {
-    "publish": true,
-    "skipChecks": false
-  },
+  
   "storybook": {
     "displayName": "designTokensCss",
     "supportedFrameworks": [
