@@ -1,6 +1,6 @@
 {
   "name": "@outlinestudio/designtokenscss",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Addon storybook to themes using design tokens with css variables",
   "keywords": [
     "style", 
