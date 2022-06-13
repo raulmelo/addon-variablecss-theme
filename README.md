@@ -18,6 +18,9 @@ create components with variables css, based on the theme you want to use.
 
 ## Example:
 
+[Example simples stackblitz]([https://pages.github.com/](https://stackblitz.com/edit/storybook-design-tokens-css))
+
+
 <div align="center">
   <img src="./_docs/exemple-theme-root.gif" width="100%" alt="logo">
   <br/>
