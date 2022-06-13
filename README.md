@@ -16,10 +16,14 @@ create components with variables css, based on the theme you want to use.
 - [ ] add .storybook/main.(js,ts)  
 - [ ] config your themes in .storybook/preview.(js,ts) 
 
-## Example:
+## Link example:
+| host | Desc | Links |
+|--|--|--|
+| code and preview | Simple example | [Link](https://stackblitz.com/edit/storybook-design-tokens-css?file=.storybook/preview.js) |
+| code and preview | Example with custom panel storybook variables | [Link](https://stackblitz.com/edit/storybook-design-tokens-css-141ywl?file=.storybook/manager-head.html) | 
+---
 
-[Example simples stackblitz]([https://pages.github.com/](https://stackblitz.com/edit/storybook-design-tokens-css))
-
+## Image example:
 
 <div align="center">
   <img src="./_docs/exemple-theme-root.gif" width="100%" alt="logo">
@@ -196,12 +200,15 @@ export const parameters = {
 
 ### Set yours themes in storybook panel (OPTIONAL)
 You can change panel default in storybook, all custom accept in css variables through file `.storybook/manager-head.html`.
-adding in styles tag with yours variable custom with params. 
+adding in styles tag with yours variable custom with params.  
+[Example with storybook theme custom panel](https://stackblitz.com/edit/storybook-design-tokens-css-141ywl?file=.storybook/manager-head.html)
+
+
 example: 
-<details><summary>Example files</summary>
+<details><summary>Example optional</summary>
 <div align="center">
   <img src="./_docs/exemple-theme-storybook.gif" width="100%" alt="logo">
   <br/>
-  <br/>
+  <br/> 
 </div>
 <details>
