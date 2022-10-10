@@ -7,7 +7,7 @@ import "./button.css";
  */
 export const Button = (props) => {
   const { theme = 'primary', label = 'Button' } = props;
-  
+
   return (
     <button
       type="button"
@@ -23,7 +23,7 @@ Button.propTypes = {
   /**
    * How large should the button be?
    */
-  theme: PropTypes.oneOf(["primary", "secondary"]),
+  theme: PropTypes.oneOf(["primary", "secondary", "outline"]),
   /**
    * Button contents
    */
