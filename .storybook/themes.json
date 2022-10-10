@@ -13,9 +13,10 @@
         "secondary-text": "#fff",
         "secondary-container": "#2f4af8",
         "secondary-light": "#465eff",
-        "secondary-dark": "#465eff",  
+        "secondary-dark": "#465eff",
         "secondary-hover": "#465eff",
         "background": "#fcfc30",
+        "background-gradient": "linear-gradient(to right, var(--secondary), var(--secondary-dark))",
         "text": "#000"
       }
     },
@@ -33,14 +34,15 @@
         "secondary-text": "#f3eef6",
         "secondary-container": "#7c5096",
         "secondary-light": "#d0bddc",
-        "secondary-dark": "#533564",  
+        "secondary-dark": "#533564",
         "secondary-hover": "#533564",
         "background": "#fcfc30",
+        "background-gradient": "linear-gradient(to right, var(--secondary), var(--secondary-dark))",
         "text": "#000"
       }
     },
     {
-      "name": "Theme Tree",
+      "name": "Theme Three",
       "miniLogo": "https://www.gclaims.com.br/assets/images/favicon/favicon-16x16.png",
       "tokens": {
         "primary": "#00a8ff",
@@ -53,9 +55,10 @@
         "secondary-text": "#e6faf6",
         "secondary-container": "#00c9a8",
         "secondary-light": "#4dd9c2",
-        "secondary-dark": "#00977e",  
+        "secondary-dark": "#00977e",
         "secondary-hover": "#00b597",
         "background": "#fcfc30",
+        "background-gradient": "linear-gradient(to right, var(--primary), var(--primary-dark))",
         "text": "#000"
       }
     }

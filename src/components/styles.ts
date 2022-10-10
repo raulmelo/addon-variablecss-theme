@@ -52,6 +52,10 @@ export const ItemSelected = styled.div((props: {shadow?: boolean}) => ({
   'span': {
     fontSize: 13
   },
+  'svg': {
+    width: 14,
+    marginRight: 2
+  },
   'img': {
     width: 16,
     height: 16,

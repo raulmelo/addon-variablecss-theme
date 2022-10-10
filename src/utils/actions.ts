@@ -2,7 +2,7 @@ import { PARAM_KEY } from "../constants";
 import { ThemeType } from "./types";
 
 export function DisplayToolState(selector: string, state: { isInDocs: boolean, themeVariableCss: string | number, themeSelected: ThemeType  }) {
-  
+
   const queryTag = document.querySelector(`#${PARAM_KEY}`);
   const validate = !!state.themeVariableCss && !!state.themeSelected
   if(!validate) {
@@ -26,12 +26,12 @@ export function DisplayToolState(selector: string, state: { isInDocs: boolean, t
   setStyle(listVariables)
 }
 
-export function MountedVariables(theme: ThemeType) { 
+export function MountedVariables(theme: ThemeType) {
   const list =  theme.tokens ? Object.keys(theme.tokens) : [];
   return list.map((item: string) => {
     if(item.slice(0,2) === '--') {
       return `${item}: ${theme.tokens[item]}`
     }
     return `--${item}: ${theme.tokens[item]}`
-  }).toString().replace(/,/g,';');
+  }).join('; ');
 }
