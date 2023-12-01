@@ -1,19 +1,23 @@
-import type { DecoratorFunction } from "@storybook/addons";
-import { useEffect, useGlobals } from "@storybook/addons";
+import type {
+  Renderer,
+  PartialStoryFn as StoryFunction,
+  StoryContext,
+} from "@storybook/types";
+import { useEffect, useGlobals } from "@storybook/preview-api";
 import { GeneratorId } from "./utils";
 import { DisplayToolState } from "./utils/actions";
 import { GetDataStorage, SetDataStorage } from "./utils/persist";
 import { ThemeType } from "./utils/types";
 
-
-export const withGlobals: DecoratorFunction = (StoryFn, context) => {
+export const withGlobals = (
+  StoryFn: StoryFunction<Renderer>,
+  context: StoryContext<Renderer>
+) => {
   const [{ themeVariableCss }, updateGlobals] = useGlobals();
-  
+  // Is the addon being used in the docs panel
   const isInDocs = context.viewMode === "docs";
-  const themes = context.parameters.designTokensCss?.themes || [];
   const persist = context.parameters.designTokensCss?.persistData || false;
-
-
+  const themes = context.parameters.designTokensCss?.themes || [];
 
   useEffect(() => {
     const dataLocal: any = GetDataStorage();
@@ -35,8 +39,6 @@ export const withGlobals: DecoratorFunction = (StoryFn, context) => {
     const selectorId = isInDocs ? `#anchor--${context.id} .docs-story` : `#root`;
     DisplayToolState(selectorId, { isInDocs, themeVariableCss, themeSelected})
   }, [themeVariableCss]);
+
   return StoryFn();
 };
-
-
-

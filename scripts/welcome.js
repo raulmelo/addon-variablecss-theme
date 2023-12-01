@@ -60,7 +60,7 @@ const questions = [
   {
     type: "list",
     name: "keywords",
-    initial: ["storybook-addons"],
+    initial: "storybook-addons",
     message: "Enter addon keywords (comma separated)",
     separator: ",",
     format: (keywords) =>
@@ -120,7 +120,7 @@ const main = async () => {
   if (!authorName || !packageName) {
     console.log(
       `\nProcess canceled by the user. Feel free to run ${bold(
-        "yarn postinstall"
+        "npm run postinstall"
       )} to execute the installation steps again!`
     );
     process.exit(0);
@@ -141,11 +141,11 @@ const main = async () => {
     .replace(REPLACE_TEMPLATES.repoUrl, repoUrl)
     .replace(REPLACE_TEMPLATES.displayName, displayName)
     .replace(REPLACE_TEMPLATES.supportedFrameworks, supportedFrameworks)
-    .replace('    "postinstall": "node scripts/welcome.js",\n', "");
+    .replace(/\s*"postinstall".*node.*scripts\/welcome.js.*",/, '');
 
   fs.writeFileSync(packageJson, packageJsonContents);
 
-  console.log("📝  Updating the README...");
+  console.log("📝 Updating the README...");
   const readme = path.resolve(__dirname, `../README.md`);
   let readmeContents = fs.readFileSync(readme, "utf-8");
 
@@ -166,7 +166,7 @@ const main = async () => {
 
   console.log(
     dedent`\n
-      🚀 All done! Run \`yarn start\` test to get started.
+      🚀 All done! Run \`npm run start\` to get started.
 
       Thanks for using this template, ${authorName.split(" ")[0]}! ❤️
 

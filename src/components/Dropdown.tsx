@@ -1,11 +1,11 @@
-import { useGlobals } from "@storybook/api";
+
 import { Icons, WithTooltip } from "@storybook/components";
-import React from "react";
+import React, { memo } from "react";
 import { PARAM_KEY } from "../constants";
 import { MountedOptions, ValidatorArrayTheme } from "../utils";
 import { OptionsThemeType, ThemeType } from "../utils/types";
 import { ButtonItem, ItemSelected, ViewToolTip } from "./styles";
-
+import { useGlobals } from "@storybook/manager-api";
 
 interface propsDropDown {
   list: ThemeType[]
@@ -13,17 +13,14 @@ interface propsDropDown {
   setTheme: (themeSelected: OptionsThemeType) => void
 }
 
-export const DropdownTool = (props: propsDropDown) => {
+export const DropdownTool = memo( function myDropdownMemo(props: propsDropDown) {
   const { list = [], label = 'Theme' } = props;
-
   const [{ themeVariableCss  }, updateGlobals] = useGlobals();
   const [options, setOptions] = React.useState<OptionsThemeType[]>([]);
-
 
   React.useEffect(() => {
     setListOptionsItem()
   }, [])
-
 
   const LabelState = React.useCallback(() => {
     return <>
@@ -89,15 +86,9 @@ export const DropdownTool = (props: propsDropDown) => {
     )
   }
   
-
   return (
     <WithTooltip placement="top" trigger="click" tooltip={ () => ComponentItem() }>
         {LabelState()}
     </WithTooltip>
   );
-}
-
-
-
-
-  
+});

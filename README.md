@@ -12,18 +12,20 @@ Add your Themes using variables css and use them in your components.
 create components with variables css, based on the theme you want to use.
 
 ## Step by step
+
 - [ ] install addon npm or yarn
 - [ ] add .storybook/main.(js,ts)  
-- [ ] config your themes in .storybook/preview.(js,ts) 
+- [ ] config your themes in .storybook/preview.(js,ts)
 
-## Link example:
+## Link example
+
 | host | Desc | Links |
 |--|--|--|
 | code and preview | Simple example | [Link](https://stackblitz.com/edit/storybook-design-tokens-css?file=.storybook/preview.js) |
-| code and preview | Example with custom panel storybook variables | [Link](https://stackblitz.com/edit/storybook-design-tokens-css-141ywl?file=.storybook/manager-head.html) | 
+| code and preview | Example with custom panel storybook variables | [Link](https://stackblitz.com/edit/storybook-design-tokens-css-141ywl?file=.storybook/manager-head.html) |
 ---
 
-## Image example:
+## Image example
 
 <div align="center">
   <img src="./_docs/exemple-theme-root.gif" width="100%" alt="logo">
@@ -31,7 +33,6 @@ create components with variables css, based on the theme you want to use.
   <br/>
 </div>
 <hr/>
-
 
 ## Requirements
 
@@ -114,13 +115,13 @@ export const parameters = {
 
 # Exemplo config with themes
 
-
 #### example config
+
 <details><summary>Example files</summary>
 
 <p>
 
-#### in themes add yours variables.
+#### in themes add yours variables
 
 ```javascript
   export const parameters = {
@@ -196,19 +197,17 @@ export const parameters = {
 </p>
 </details>
 
-
-
 ### Set yours themes in storybook panel (OPTIONAL)
+
 You can change panel default in storybook, all custom accept in css variables through file `.storybook/manager-head.html`.
 adding in styles tag with yours variable custom with params.  
 [Example with storybook theme custom panel](https://stackblitz.com/edit/storybook-design-tokens-css-141ywl?file=.storybook/manager-head.html)
 
-
-example: 
+example:
 <details><summary>Example optional</summary>
 <div align="center">
   <img src="./_docs/exemple-theme-storybook.gif" width="100%" alt="logo">
   <br/>
-  <br/> 
+  <br/>
 </div>
 <details>

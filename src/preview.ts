@@ -6,9 +6,16 @@
  *
  * When writing stories, decorators are typically used to wrap stories with extra markup or context mocking.
  *
- * https://storybook.js.org/docs/react/writing-stories/decorators#gatsby-focus-wrapper
+ * https://storybook.js.org/docs/react/writing-stories/decorators
  */
-import { withGlobals } from "../withGlobals";
+import type { Renderer, ProjectAnnotations } from "@storybook/types";
+import { withGlobals } from "./withGlobals";
 
+const preview: ProjectAnnotations<Renderer> = {
+  decorators: [withGlobals],
+  globals: {
+    themeVariableCss: null
+  },
+};
 
-export const decorators = [withGlobals];
+export default preview;
