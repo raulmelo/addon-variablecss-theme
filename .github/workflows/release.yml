@@ -12,13 +12,13 @@ jobs:
       - name: Prepare repository
         run: git fetch --unshallow --tags
 
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v3
+      - name: Use Node.js 15.x
+        uses: actions/setup-node@v1
         with:
-          node-version: 16.x
+          node-version: 15.x
 
       - name: Install dependencies
-        run: npm install --ignore-scripts
+        uses: bahmutov/npm-install@v1
 
       - name: Create Release
         env:
