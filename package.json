@@ -46,7 +46,7 @@
     "start": "run-p build:watch 'storybook --quiet'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prerelease": "zx scripts/prepublish-checks.mjs",
-    "release": "npm run build",
+    "release": "npm run build && auto shipit",
     "eject-ts": "zx scripts/eject-typescript.mjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
