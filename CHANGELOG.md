@@ -1,3 +1,16 @@
+# v1.0.10 (Sat Dec 02 2023)
+
+#### 🐛 Bug Fix
+
+- hotfix: bug loop in persist data [#5](https://github.com/raulmelo/addon-variablecss-theme/pull/5) (raulmelo@MacBook-Pro-de-raul.local [@raulmelo](https://github.com/raulmelo))
+
+#### Authors: 2
+
+- Raul melo ([@raulmelo](https://github.com/raulmelo))
+- raul melo (raulmelo@MacBook-Pro-de-raul.local)
+
+---
+
 # v1.0.9 (Fri Dec 01 2023)
 
 #### 🐛 Bug Fix
