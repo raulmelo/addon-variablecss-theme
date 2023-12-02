@@ -1,0 +1,65 @@
+[
+    {
+      "name": "Theme one",
+      "tokens": {
+        "--font-family": "Roboto, sans-serif",
+        "--primary": "#fcfc30",
+        "--primary-text": "#00A8FF",
+        "--primary-container": "#fcf130",
+        "--primary-light": "#fcfc30",
+        "--primary-dark": "#FFFFFF",
+        "--primary-hover": "#fae128",
+        "--secondary": "#465eff",
+        "--secondary-text": "#fff",
+        "--secondary-container": "#2f4af8",
+        "--secondary-light": "#465eff",
+        "--secondary-dark": "#465eff",
+        "--secondary-hover": "#465eff",
+        "--background": "#fcfc30",
+        "--background-gradient": "linear-gradient(to right, var(--secondary), var(--secondary-dark))",
+        "--text": "#000"
+      }
+    },
+    {
+      "name": "Theme Two",
+      "miniLogo": "https://javisperez.github.io/tailwindcolorshades/img/icons/favicon-16x16.png",
+      "tokens": {
+        "--primary": "#c8c615",
+        "--primary-text": "#faf9e8",
+        "--primary-container": "#b4b213",
+        "--primary-light": "#e9e8a1",
+        "--primary-dark": "#62610a",
+        "--primary-hover": "#969510",
+        "--secondary": "#8a59a7",
+        "--secondary-text": "#f3eef6",
+        "--secondary-container": "#7c5096",
+        "--secondary-light": "#d0bddc",
+        "--secondary-dark": "#533564",
+        "--secondary-hover": "#533564",
+        "--background": "#fcfc30",
+        "--background-gradient": "linear-gradient(to right, var(--secondary), var(--secondary-dark))",
+        "--text": "#000"
+      }
+    },
+    {
+      "name": "Theme Three",
+      "miniLogo": "https://www.gclaims.com.br/assets/images/favicon/favicon-16x16.png",
+      "tokens": {
+        "--primary": "#00a8ff",
+        "--primary-text": "#e6f6ff",
+        "--primary-container": "#007ebf",
+        "--primary-light": "#99dcff",
+        "--primary-dark": "#006599",
+        "--primary-hover": "#007ebf",
+        "--secondary": "#00c9a8",
+        "--secondary-text": "#e6faf6",
+        "--secondary-container": "#00c9a8",
+        "--secondary-light": "#4dd9c2",
+        "--secondary-dark": "#00977e",
+        "--secondary-hover": "#00b597",
+        "--background": "#fcfc30",
+        "--background-gradient": "linear-gradient(to right, var(--primary), var(--primary-dark))",
+        "--text": "#000"
+      }
+    }
+  ]

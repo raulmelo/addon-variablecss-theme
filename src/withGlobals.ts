@@ -20,11 +20,6 @@ export const withGlobals = (
   const persist = context.parameters.designTokensCss?.persistData || false;
   const themes = context.parameters.designTokensCss?.themes || [];
 
-  console.log('context', context)
-  console.log('themeVariableCss', themeVariableCss)
-  console.log('themes', themes)
-
-
   useEffect(() => {
     const dataLocal: any = GetDataStorage();
     if(dataLocal && dataLocal.themes && dataLocal.selected) {
@@ -32,13 +27,6 @@ export const withGlobals = (
       DisplayToolState(selectorId, { isInDocs, themeVariableCss: dataLocal.selected.name, themeSelected: dataLocal.selected })
     }
   }, [])
-
-  // function setTheme(selected: any) {
-  //   if(themeVariableCss) {
-  //     console.log('selected', selected)
-  //     updateGlobals({themeVariableCss: selected});
-  //   }
-  // }
 
   useEffect(() => {
     let themeSelected = null
