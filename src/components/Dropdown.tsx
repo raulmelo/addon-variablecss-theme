@@ -6,6 +6,7 @@ import { MountedOptions, ValidatorArrayTheme } from "../utils";
 import { OptionsThemeType, ThemeType } from "../utils/types";
 import { ButtonItem, ItemSelected, ViewToolTip } from "./styles";
 import { useGlobals } from "@storybook/manager-api";
+import { GetDataStorage } from "src/utils/persist";
 
 interface propsDropDown {
   list: ThemeType[]
@@ -19,13 +20,21 @@ export const DropdownTool = memo( function myDropdownMemo(props: propsDropDown) 
   const [options, setOptions] = React.useState<OptionsThemeType[]>([]);
 
   React.useEffect(() => {
+    const dataLocal: any = GetDataStorage();
+     if(dataLocal?.selected) {
+      updateGlobals({
+        ...global,
+        themeVariableCss: dataLocal.selected
+      })
+    }
     setListOptionsItem()
   }, [])
+
 
   const LabelState = React.useCallback(() => {
     return <>
     {!!themeVariableCss && !!themeVariableCss?.name ? 
-      <ItemSelected shadow className={`button-` + PARAM_KEY}>
+      <ItemSelected shadow className={`button-` + PARAM_KEY + '-selected'}>
         {!!themeVariableCss?.miniLogo && 
           <img src={themeVariableCss.miniLogo} alt=""/>
         }
@@ -74,10 +83,15 @@ export const DropdownTool = memo( function myDropdownMemo(props: propsDropDown) 
           return (
             <ButtonItem 
               key={index}  
+              className={
+                `button-` + PARAM_KEY
+                + (themeVariableCss?.name === item.name ? ' selected' : '')
+              }
               onClick={() => toggleMyTool(item)} 
+              
             >
-              {item.type === 'icon' && <Icons icon="lightning" />  }
-              {item.type === 'image' && <img src={item.miniLogo} alt=""/> }
+              {item.type === 'icon' && <Icons icon="starhollow" />  }
+              {(item.type === 'image' && !!item.miniLogo) && <img src={item.miniLogo} alt=""/> }
               {item.name} 
             </ButtonItem>
           )
@@ -88,7 +102,7 @@ export const DropdownTool = memo( function myDropdownMemo(props: propsDropDown) 
   
   return (
     <WithTooltip placement="top" trigger="click" tooltip={ () => ComponentItem() }>
-        {LabelState()}
+        <LabelState />
     </WithTooltip>
   );
 });

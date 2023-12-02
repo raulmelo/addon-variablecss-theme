@@ -8,6 +8,7 @@ import { GeneratorId } from "./utils";
 import { DisplayToolState } from "./utils/actions";
 import { GetDataStorage, SetDataStorage } from "./utils/persist";
 import { ThemeType } from "./utils/types";
+import React from "react";
 
 export const withGlobals = (
   StoryFn: StoryFunction<Renderer>,
@@ -19,14 +20,25 @@ export const withGlobals = (
   const persist = context.parameters.designTokensCss?.persistData || false;
   const themes = context.parameters.designTokensCss?.themes || [];
 
+  console.log('context', context)
+  console.log('themeVariableCss', themeVariableCss)
+  console.log('themes', themes)
+
+
   useEffect(() => {
     const dataLocal: any = GetDataStorage();
     if(dataLocal && dataLocal.themes && dataLocal.selected) {
-      updateGlobals({themeVariableCss: dataLocal.selected});
       const selectorId = isInDocs ? `#anchor--${context.id} .docs-story` : `#root`;
       DisplayToolState(selectorId, { isInDocs, themeVariableCss: dataLocal.selected.name, themeSelected: dataLocal.selected })
     }
   }, [])
+
+  // function setTheme(selected: any) {
+  //   if(themeVariableCss) {
+  //     console.log('selected', selected)
+  //     updateGlobals({themeVariableCss: selected});
+  //   }
+  // }
 
   useEffect(() => {
     let themeSelected = null
@@ -38,7 +50,7 @@ export const withGlobals = (
     }
     const selectorId = isInDocs ? `#anchor--${context.id} .docs-story` : `#root`;
     DisplayToolState(selectorId, { isInDocs, themeVariableCss, themeSelected})
-  }, [themeVariableCss]);
+    }, [themeVariableCss]);
 
   return StoryFn();
 };
