@@ -1,3 +1,16 @@
+# v1.0.11 (Sat Dec 02 2023)
+
+#### 🐛 Bug Fix
+
+- docs: Add file images docs [#6](https://github.com/raulmelo/addon-variablecss-theme/pull/6) (raulmelo@MacBook-Pro-de-raul.local [@raulmelo](https://github.com/raulmelo))
+
+#### Authors: 2
+
+- Raul melo ([@raulmelo](https://github.com/raulmelo))
+- raul melo (raulmelo@MacBook-Pro-de-raul.local)
+
+---
+
 # v1.0.10 (Sat Dec 02 2023)
 
 #### 🐛 Bug Fix
