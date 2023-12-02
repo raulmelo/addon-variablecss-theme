@@ -70,12 +70,12 @@ export const parameters = {
           "miniLogo": "",
           "tokens": {
             ## add all yours css variables here
-            "yours-primary": "#c8c615",
-            "yours-primary-text": "#faf9e8",
-            "yours-primary-container": "#b4b213",
-            "yours-primary-light": "#e9e8a1",
-            "yours-primary-dark": "#62610a",
-            "yours-primary-hover": "#969510" 
+            "--yours-primary": "#c8c615",
+            "--yours-primary-text": "#faf9e8",
+            "--yours-primary-container": "#b4b213",
+            "--yours-primary-light": "#e9e8a1",
+            "--yours-primary-dark": "#62610a",
+            "--yours-primary-hover": "#969510" 
             ## add all yours css variables here
           }
         },
@@ -84,12 +84,12 @@ export const parameters = {
           "miniLogo": "https://javisperez.github.io/tailwindcolorshades/img/icons/favicon-16x16.png",
           "tokens": {
             ## add all yours css variables here
-            "yours-primary": "#c8c615",
-            "yours-primary-text": "#faf9e8",
-            "yours-primary-container": "#b4b213",
-            "yours-primary-light": "#e9e8a1",
-            "yours-primary-dark": "#62610a",
-            "yours-primary-hover": "#969510"
+            "--yours-primary": "#c8c615",
+            "--yours-primary-text": "#faf9e8",
+            "--yours-primary-container": "#b4b213",
+            "--yours-primary-light": "#e9e8a1",
+            "--yours-primary-dark": "#62610a",
+            "--yours-primary-hover": "#969510"
             ## add all yours css variables here
            }
         },

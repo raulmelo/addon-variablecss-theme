@@ -8,6 +8,7 @@ import { GeneratorId } from "./utils";
 import { DisplayToolState } from "./utils/actions";
 import { GetDataStorage, SetDataStorage } from "./utils/persist";
 import { ThemeType } from "./utils/types";
+import React from "react";
 
 export const withGlobals = (
   StoryFn: StoryFunction<Renderer>,
@@ -22,7 +23,6 @@ export const withGlobals = (
   useEffect(() => {
     const dataLocal: any = GetDataStorage();
     if(dataLocal && dataLocal.themes && dataLocal.selected) {
-      updateGlobals({themeVariableCss: dataLocal.selected});
       const selectorId = isInDocs ? `#anchor--${context.id} .docs-story` : `#root`;
       DisplayToolState(selectorId, { isInDocs, themeVariableCss: dataLocal.selected.name, themeSelected: dataLocal.selected })
     }
@@ -38,7 +38,7 @@ export const withGlobals = (
     }
     const selectorId = isInDocs ? `#anchor--${context.id} .docs-story` : `#root`;
     DisplayToolState(selectorId, { isInDocs, themeVariableCss, themeSelected})
-  }, [themeVariableCss]);
+    }, [themeVariableCss]);
 
   return StoryFn();
 };

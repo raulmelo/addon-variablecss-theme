@@ -5,17 +5,19 @@ import {  PARAM_KEY, TOOL_ID } from "./constants";
 import { DropdownTool } from "./components/Dropdown";
 import { ThemeTokensType, ThemeType } from "./utils/types";
 import { DisplayToolState } from "./utils/actions";
+import { GetDataStorage } from "./utils/persist";
 
 export const Tool = memo(function MyAddonSelector() {
-  const [{ themeVariableCss }] = useGlobals();
+  const [ global, updateGlobals] = useGlobals();
   const tokensCss = useParameter<ThemeTokensType>(PARAM_KEY)
 
+  
   useEffect( () => {
-    if(tokensCss && themeVariableCss) {
-      const themeSelected = tokensCss?.themes.filter((_theme: ThemeType) => _theme.name === themeVariableCss?.name)[0];
-      DisplayToolState('html', {isInDocs: false,  themeVariableCss: themeVariableCss.name, themeSelected: themeSelected} )
+    if(tokensCss && global.themeVariableCss) {
+      const themeSelected = tokensCss?.themes.filter((_theme: ThemeType) => _theme.name === global.themeVariableCss?.name)[0];
+      DisplayToolState('html', {isInDocs: false,  themeVariableCss: global.themeVariableCss.name, themeSelected: themeSelected} )
     }
-  }, [themeVariableCss])
+  }, [global.themeVariableCss])
 
   if (!tokensCss && !tokensCss?.themes?.length) {
     return null

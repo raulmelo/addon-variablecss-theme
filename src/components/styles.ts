@@ -34,6 +34,10 @@ export const ButtonItem = styled(Button)({
     width: 16,
     height: 16,
     objectFit: 'contain',
+  },
+  '&.selected': {
+    color: convert(themes.normal).color.secondary,
+    fontWeight: 'bold'
   }
 });
 
