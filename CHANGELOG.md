@@ -1,3 +1,16 @@
+# v1.0.12 (Sun Dec 03 2023)
+
+#### 🐛 Bug Fix
+
+- chore: logo addons change [#7](https://github.com/raulmelo/addon-variablecss-theme/pull/7) (raulmelo@MacBook-Pro-de-raul.local [@raulmelo](https://github.com/raulmelo))
+
+#### Authors: 2
+
+- Raul melo ([@raulmelo](https://github.com/raulmelo))
+- raul melo (raulmelo@MacBook-Pro-de-raul.local)
+
+---
+
 # v1.0.11 (Sat Dec 02 2023)
 
 #### 🐛 Bug Fix
