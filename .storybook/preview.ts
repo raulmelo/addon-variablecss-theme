@@ -1,5 +1,5 @@
-import type { Preview } from "@storybook/react";
-import Themes from '../EXAMPLES_THEMES.json';
+import type { Preview } from "@storybook/react-vite";
+import Themes from "../EXAMPLES_THEMES.json";
 
 const preview: Preview = {
   parameters: {
@@ -9,7 +9,7 @@ const preview: Preview = {
     designTokensCss: {
       label: "Themes",
       persistData: true,
-      themes: Themes
+      themes: Themes,
     },
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
@@ -18,7 +18,7 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
-  }
+  },
 };
 
 export default preview;
