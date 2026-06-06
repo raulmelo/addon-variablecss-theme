@@ -36,7 +36,7 @@ create components with variables css, based on the theme you want to use.
 
 ## Requirements
 
-- Storybook@>=6.0.0
+- Storybook@>=10
 
   This addon should work well with any framework: If you find the case the addon not works, please open an issue.
 
