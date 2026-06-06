@@ -21,16 +21,15 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "node": "./dist/index.js",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "default": "./dist/index.js"
     },
-    "./manager": "./dist/manager.mjs",
-    "./preview": "./dist/preview.mjs",
+    "./manager": "./dist/manager.js",
+    "./preview": {
+      "types": "./dist/preview.d.ts",
+      "default": "./dist/preview.js"
+    },
     "./package.json": "./package.json"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist/**/*",
@@ -39,11 +38,11 @@
     "*.d.ts"
   ],
   "scripts": {
-    "clean": "rimraf ./dist",
+    "clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true })\"",
     "prebuild": "npm run clean",
     "build": "tsup",
     "build:watch": "npm run build -- --watch",
-    "start": "run-p build:watch 'storybook --quiet'",
+    "start": "run-p build:watch \"storybook --quiet\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prerelease": "zx scripts/prepublish-checks.mjs",
     "release": "npm run build && auto shipit",
@@ -52,53 +51,37 @@
     "build-storybook": "storybook build"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "7.6.2",
-    "@storybook/addon-interactions": "7.6.2",
-    "@storybook/addon-links": "7.6.2",
-    "@storybook/addon-mdx-gfm": "^7.6.2",
-    "@storybook/blocks": "7.6.2",
-    "@storybook/components": "7.6.2",
-    "@storybook/core-events": "7.6.2",
-    "@storybook/manager": "7.6.2",
-    "@storybook/manager-api": "7.6.2",
-    "@storybook/preview": "7.6.2",
-    "@storybook/preview-api": "7.6.2",
-    "@storybook/react": "7.6.2",
-    "@storybook/react-vite": "7.6.2",
-    "@storybook/testing-library": "^0.2.2",
-    "@storybook/theming": "7.6.2",
-    "@storybook/types": "7.6.2",
-    "@types/node": "^18.15.0",
-    "@types/react": "^16.14.51",
-    "@types/react-dom": "^16.9.22",
-    "@vitejs/plugin-react": "^4.1.1",
+    "@storybook/addon-docs": "^10.0.0",
+    "@storybook/icons": "^2.0.0",
+    "@storybook/react-vite": "^10.0.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.65",
+    "@types/react-dom": "^18.2.21",
+    "@vitejs/plugin-react": "^5.0.0",
     "auto": "^11.0.4",
-    "boxen": "^7.1.1",
+    "boxen": "^8.0.1",
     "dedent": "^1.5.1",
     "npm-run-all": "^4.1.5",
-    "prettier": "^3.0.3",
+    "prettier": "^3.6.2",
     "prompts": "^2.4.2",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "rimraf": "^5.0.5",
-    "storybook": "7.6.2",
-    "tsup": "^7.2.0",
-    "typescript": "^5.2.2",
-    "vite": "^4.5.0",
-    "zx": "^7.2.3"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^10.0.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.5",
+    "zx": "^8.7.1"
   },
   "publishConfig": {
     "access": "public"
   },
   "bundler": {
-    "exportEntries": [
-      "src/index.ts"
-    ],
     "managerEntries": [
       "src/manager.ts"
     ],
     "previewEntries": [
-      "src/preview.ts"
+      "src/preview.ts",
+      "src/index.ts"
     ]
   },
   "storybook": {
@@ -115,5 +98,9 @@
       "web-components"
     ],
     "icon": "https://raw.githubusercontent.com/raulmelo/addon-variablecss-theme/main/_docs/designtokensStorybook.png"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "storybook": "^10.0.0"
   }
 }

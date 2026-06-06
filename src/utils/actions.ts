@@ -1,20 +1,26 @@
 import { PARAM_KEY } from "../constants";
 import { ThemeType } from "./types";
 
-export function DisplayToolState(selector: string, state: { isInDocs: boolean, themeVariableCss: string | number, themeSelected: ThemeType  }) {
-
+export function DisplayToolState(
+  selector: string,
+  state: {
+    isInDocs: boolean;
+    themeVariableCss: unknown;
+    themeSelected: ThemeType;
+  },
+) {
   const queryTag = document.querySelector(`#${PARAM_KEY}`);
-  const validate = !!state.themeVariableCss && !!state.themeSelected
-  if(!validate) {
-    return
+  const validate = !!state.themeVariableCss && !!state.themeSelected;
+  if (!validate) {
+    return;
   }
-  const listVariables  = MountedVariables(state.themeSelected);
+  const listVariables = MountedVariables(state.themeSelected);
 
   function setStyle(list: string) {
-    if(queryTag) {
+    if (queryTag) {
       document.head.removeChild(queryTag);
     }
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.id = `${PARAM_KEY}`;
     style.innerHTML = `
       :root {
@@ -23,15 +29,17 @@ export function DisplayToolState(selector: string, state: { isInDocs: boolean, t
     `;
     document.head.appendChild(style);
   }
-  setStyle(listVariables)
+  setStyle(listVariables);
 }
 
 export function MountedVariables(theme: ThemeType) {
-  const list =  theme.tokens ? Object.keys(theme.tokens) : [];
-  return list.map((item: string) => {
-    if(item.slice(0,2) === '--') {
-      return `${item}: ${theme.tokens[item]}`
-    }
-    return `--${item}: ${theme.tokens[item]}`
-  }).join('; ');
+  const list = theme.tokens ? Object.keys(theme.tokens) : [];
+  return list
+    .map((item: string) => {
+      if (item.slice(0, 2) === "--") {
+        return `${item}: ${theme.tokens[item]}`;
+      }
+      return `--${item}: ${theme.tokens[item]}`;
+    })
+    .join("; ");
 }

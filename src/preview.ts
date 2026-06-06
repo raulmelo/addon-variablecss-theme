@@ -8,13 +8,12 @@
  *
  * https://storybook.js.org/docs/react/writing-stories/decorators
  */
-import type { Renderer, ProjectAnnotations } from "@storybook/types";
 import { withGlobals } from "./withGlobals";
 
-const preview: ProjectAnnotations<Renderer> = {
+const preview = {
   decorators: [withGlobals],
   globals: {
-    themeVariableCss: null
+    themeVariableCss: null as unknown,
   },
 };
 
